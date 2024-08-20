@@ -21,12 +21,15 @@ export class QuotesComponent implements OnInit {
 
   getQuote(): void {
     const params = new HttpParams()
-      .set('category', 'happiness');
+      .set('category', 'happiness')
+      .set('category', 'love');
 
     const headers = new HttpHeaders()
       .set('Accept', 'application/json')
       .set('X-Api-Key', 'gyjrgMoo/0yG510YHD39eg==1EKPv6nzoQWuey9h');
 
+    // https://api-ninjas.com/profile
+    
     this.http.get<any>('https://api.api-ninjas.com/v1/quotes', { params, headers }).subscribe(
       response => {
         // Adjust based on actual API response
@@ -38,7 +41,7 @@ export class QuotesComponent implements OnInit {
       error => {
         console.error('Error fetching quote:', error);
         this.error = error
-        this.router.navigate(['/error']); 
+        this.router.navigate(['/error']);
       }
     );
   }
