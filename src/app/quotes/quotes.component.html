@@ -1,0 +1,29 @@
+<div
+    class="bg-[#fffdf5] w-full h-screen flex flex-col justify-center items-center text-center px-6 special-elite-regular relative">
+        <div class="relative">
+            <p class="text-2xl lg:text-4xl font-semibold text-gray-700 leading-relaxed max-w-2xl ">
+        <span class="absolute -left-4 md:-left-12 text-6xl lg:text-8xl font-bold text-gray-700 -top-3">
+            “
+        </span>
+
+        <span class="inline-block mx-4">
+            {{ quote }}
+        </span>
+
+       
+    </p>
+    <span class="absolute -right-3 md:-right-12 text-6xl lg:text-8xl font-bold text-gray-700 -bottom-8 md:-bottom-16">
+        ”
+    </span>
+
+        </div>
+    
+    <p class="text-lg lg:text-2xl text-gray-600 mt-4">
+        - {{ author }}
+    </p>
+
+    <button (click)="getQuote()"
+        class="mt-8 px-6 py-3 bg-gray-800 text-white rounded-full text-lg lg:text-xl hover:bg-gray-700 transition duration-300">
+        Get New Quote
+    </button>
+</div>
