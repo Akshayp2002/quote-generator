@@ -21,16 +21,16 @@ export class QuotesComponent implements OnInit {
 
   getQuote(): void {
     const params = new HttpParams()
-      .set('limit', '1')
-      .set('tags', 'love|happiness');
+      .set('category', 'happiness');
 
     const headers = new HttpHeaders()
-      .set('Accept', 'application/json');
+      .set('Accept', 'application/json')
+      .set('X-Api-Key', 'gyjrgMoo/0yG510YHD39eg==1EKPv6nzoQWuey9h');
 
-    this.http.get<any>('https://api.quotable.io/quotes/random', { params, headers }).subscribe(
+    this.http.get<any>('https://api.api-ninjas.com/v1/quotes', { params, headers }).subscribe(
       response => {
         // Adjust based on actual API response
-        this.quote = response[0].content;  // Use `response.content` if the response is not an array
+        this.quote = response[0].quote;  // Use `response.content` if the response is not an array
         this.author = response[0].author;
         console.log('Quote:', this.quote);
         console.log('Author:', this.author);
@@ -38,7 +38,7 @@ export class QuotesComponent implements OnInit {
       error => {
         console.error('Error fetching quote:', error);
         this.error = error
-        // this.router.navigate(['/error']); 
+        this.router.navigate(['/error']); 
       }
     );
   }
