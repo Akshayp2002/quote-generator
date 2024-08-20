@@ -11,6 +11,7 @@ export class QuotesComponent implements OnInit {
 
   quote: string = '';
   author: string = '';
+  error: string = '';
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -36,7 +37,8 @@ export class QuotesComponent implements OnInit {
       },
       error => {
         console.error('Error fetching quote:', error);
-        this.router.navigate(['/error']); // Redirect to an error page
+        this.error = error
+        // this.router.navigate(['/error']); 
       }
     );
   }
