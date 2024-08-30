@@ -1,0 +1,78 @@
+<div class="bg-gray-50 dark:bg-gray-800 flex flex-col min-h-screen">
+    <!-- Header -->
+    <nav class="justify-between px-4 py-3 text-gray-700 border border-gray-200 rounded-lg sm:flex sm:px-5 bg-gray-50 dark:bg-gray-800 dark:border-gray-700"
+        aria-label="Breadcrumb">
+        <h1
+            class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
+            QRCode Generate</h1>
+    </nav>
+    <!-- Form -->
+    <form [formGroup]="qrcodeForm" class="max-w-sm mx-auto">
+        <div data-element="fields" data-stacked="false"
+            class="flex items-center w-full max-w-md mb-3 seva-fields formkit-fields mt-72">
+            <div class="relative w-full mr-3 formkit-field">
+                <label for="member_email"
+                    class="hidden block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">URL</label>
+                <div class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
+                    <svg class="w-4 h-4 text-gray-800 dark:text-gray-300" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 21 21">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m6.072 10.072 2 2 6-4m3.586 4.314.9-.9a2 2 0 0 0 0-2.828l-.9-.9a2 2 0 0 1-.586-1.414V5.072a2 2 0 0 0-2-2H13.8a2 2 0 0 1-1.414-.586l-.9-.9a2 2 0 0 0-2.828 0l-.9.9a2 2 0 0 1-1.414.586H5.072a2 2 0 0 0-2 2v1.272a2 2 0 0 1-.586 1.414l-.9.9a2 2 0 0 0 0 2.828l.9.9a2 2 0 0 1 .586 1.414v1.272a2 2 0 0 0 2 2h1.272a2 2 0 0 1 1.414.586l.9.9a2 2 0 0 0 2.828 0l.9-.9a2 2 0 0 1 1.414-.586h1.272a2 2 0 0 0 2-2V13.8a2 2 0 0 1 .586-1.414Z">
+                        </path>
+                    </svg>
+                </div>
+                <input id="url"
+                    class="formkit-input bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    name="url" formControlName="url" aria-label="URL" placeholder="Enter URL..." required=""
+                    type="text">
+            </div>
+            <button data-element="submit" class="formkit-submit" (click)="onGenerateClick()">
+                <div class="formkit-spinner">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <span
+                    class="px-5 py-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg cursor-pointer hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Generate</span>
+            </button>
+        </div>
+        <p *ngIf="error" id="outlined_error_help" class="m-2 text-xs text-red-600 dark:text-red-400"><span
+                class="font-medium">Oh,
+                snapp!</span> {{ error }}</p>
+    </form>
+    <!-- Download button -->
+    <div class="flex flex-col items-center justify-center">
+        <div *ngIf="qrcodeUrl" class="flex flex-col items-center justify-center space-y-4">
+            <img [src]="qrcodeUrl" alt="QR Code">
+            <a [href]="qrcodeUrl" download="qrcode.png">
+                <button data-element="submit" class="formkit-submit">
+                    <div class="formkit-spinner">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <span
+                        class="px-5 py-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg cursor-pointer hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        Download
+                    </span>
+                </button>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="flex-grow"></div>
+    <div class="flex-wrap bottom-0">
+        <p class="text-center text-gray-500 text-sm glow">
+            Made with Angular and Tailwind
+            <svg xmlns="http://www.w3.org/2000/svg" class="inline-block w-4 h-4 text-red-500" viewBox="0 0 24 24"
+                fill="currentColor">
+                <path
+                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
+        </p>
+        <p class="text-center text-gray-500 text-sm pb-3 glow">
+            &#64; 2024 Akshay
+        </p>
+    </div>
+</div>
