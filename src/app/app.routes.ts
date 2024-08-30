@@ -8,6 +8,6 @@ export const routes: Routes = [
     { path: '', component: LandingPageComponent },
     { path: 'quotes', component: QuotesComponent },
     { path: 'error', component: ErrorPageComponent },
+    { path: 'qrcode', component: QrcodeComponent }
     // { path: '**', redirectTo: '' }, 
-    {path:'qrcode',component:QrcodeComponent}
 ];
