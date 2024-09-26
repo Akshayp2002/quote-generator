@@ -1,4 +1,4 @@
-<section class="bg-white dark:bg-gray-900 h-screen">
+<section class="bg-white dark:bg-gray-900">
     <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
         <!--  -->
         <div
@@ -9,7 +9,8 @@
                 cutting-edge technologies and tools in my daily work. From
                 modern frameworks and
                 languages to powerful platforms, my toolkit ensures high-quality and efficient development.</p>
-            <a href="https://devakshay.vercel.app"
+                <div class="flex gap-2">
+                      <a href="https://devakshay.vercel.app"
                 class="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
                 Portfolio
                 <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
@@ -18,9 +19,20 @@
                         d="M1 5h12m0 0L9 1m4 4L9 9" />
                 </svg>
             </a>
+            <a routerLink="/resume"
+                class="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+                Resume
+                <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 14 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M1 5h12m0 0L9 1m4 4L9 9" />
+                </svg>
+            </a>
+                </div>
+          
         </div>
         <!--  -->
-        <div class="grid md:grid-cols-2 gap-8">
+        <div class="grid md:grid-cols-2 gap-8  mb-8">
             <div class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12">
                 <div
                     class="bg-purple-100 text-purple-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md dark:bg-gray-700 dark:text-purple-400 mb-2">
@@ -90,5 +102,14 @@
                 </a>
             </div>
         </div>
+
+
+            <app-git-stats/>
+
+            <app-socials/>
+
+
+
+
     </div>
 </section>
