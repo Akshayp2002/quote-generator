@@ -21,8 +21,7 @@ export class QuotesComponent implements OnInit {
 
   getQuote(): void {
     const params = new HttpParams()
-      .set('category', 'happiness')
-      .set('category', 'love');
+      .set('tags', 'love,famous-quotes');
 
     const headers = new HttpHeaders()
       .set('Accept', 'application/json')
@@ -30,11 +29,13 @@ export class QuotesComponent implements OnInit {
 
     // https://api-ninjas.com/profile
     
-    this.http.get<any>('https://api.api-ninjas.com/v1/quotes', { params, headers }).subscribe(
+    // this.http.get<any>('https://api.api-ninjas.com/v1/quotes', { params, headers }).subscribe(
+    this.http.get<any>('https://api.quotable.io/quotes/random', { params, headers },'famous-quotes').subscribe(
+
       response => {
         // Adjust based on actual API response
-        this.quote = response[0].quote;  // Use `response.content` if the response is not an array
-        this.author = response[0].author;
+        this.quote = response.content;  // Quote content
+        this.author = response.author; // Quote author
         console.log('Quote:', this.quote);
         console.log('Author:', this.author);
       },
