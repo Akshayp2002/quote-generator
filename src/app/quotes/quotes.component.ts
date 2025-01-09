@@ -33,10 +33,14 @@ export class QuotesComponent implements OnInit {
     this.http.get<any>('https://api.quotable.io/quotes/random', { params, headers }).subscribe(
       response => {
         // Adjust based on actual API response
-        this.quote = response.content;  // Quote content
-        this.author = response.author; // Quote author
-        console.log('Quote:', this.quote);
-        console.log('Author:', this.author);
+        if (response && response.length > 0) {
+          this.quote = response[0].content;  // Quote content
+          this.author = response[0].author; // Quote author
+          console.log('Quote:', this.quote);
+          console.log('Author:', this.author);
+        } else {
+          console.error('Empty response from API');
+        }
       },
       error => {
         console.error('Error fetching quote:', error);
