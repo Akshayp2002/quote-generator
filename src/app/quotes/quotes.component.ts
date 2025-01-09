@@ -30,7 +30,7 @@ export class QuotesComponent implements OnInit {
     // https://api-ninjas.com/profile
     
     // this.http.get<any>('https://api.api-ninjas.com/v1/quotes', { params, headers }).subscribe(
-    this.http.get<any>('https://api.quotable.io/quotes/random', { params, headers }).subscribe(
+    this.http.get<any>('https://api.quotable.io/quotes/random', { headers }).subscribe(
       response => {
         // Adjust based on actual API response
         if (response && response.length > 0) {
