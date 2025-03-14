@@ -25,16 +25,17 @@ export class QuotesComponent implements OnInit {
 
     const headers = new HttpHeaders()
       .set('Accept', 'application/json')
-      .set('X-Api-Key', 'gyjrgMoo/0yG510YHD39eg==1EKPv6nzoQWuey9h');
+      .set('X-Api-Key', '82+i4O6Y106FcMfuSouNQA==jV0VpZW832gcZORw');
 
     // https://api-ninjas.com/profile
-    
-    // this.http.get<any>('https://api.api-ninjas.com/v1/quotes', { params, headers }).subscribe(
-    this.http.get<any>('https://api.quotable.io/quotes/random', { headers }).subscribe(
+
+    this.http.get<any>('https://api.api-ninjas.com/v1/quotes', { headers }).subscribe(
+    // this.http.get<any>('https://randomlovecraft.com/api', { headers }).subscribe(
       response => {
+        console.log(response);
         // Adjust based on actual API response
         if (response && response.length > 0) {
-          this.quote = response[0].content;  // Quote content
+          this.quote = response[0].quote;  // Quote content
           this.author = response[0].author; // Quote author
           console.log('Quote:', this.quote);
           console.log('Author:', this.author);
@@ -43,7 +44,7 @@ export class QuotesComponent implements OnInit {
         }
       },
       error => {
-        console.error('Error fetching quote:', error);
+        console.log('Error fetching quote:', error);
         this.error = error
         this.router.navigate(['/error']);
       }
